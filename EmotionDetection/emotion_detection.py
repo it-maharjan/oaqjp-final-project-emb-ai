@@ -34,7 +34,8 @@ def emotion_detector(text_to_analyze):
                 'sadness': sadness_score
             }
             dominant_emotion = max(emotion_scores,key=emotion_scores.get)
-            return {'anger': anger_score,
+            return {
+                    'anger': anger_score,
                     'disgust': disgust_score,
                     'fear': fear_score,
                     'joy': joy_score,
@@ -42,4 +43,11 @@ def emotion_detector(text_to_analyze):
                     'dominant_emotion': dominant_emotion
                 }
     else:
-        return f"Error: {response.status_code} - {response.json()}"
+        return {
+                'anger': None,
+                'disgust': None,
+                'fear': None,
+                'joy': None,
+                'sadness': None,
+                'dominant_emotion': None
+            }
